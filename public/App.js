@@ -3,9 +3,10 @@ import { Party } from './classes/Party.js';
 import { ListTemplate } from './classes/ListTemplate.js';
 const form = document.querySelector('.new-item');
 const type = document.querySelector('#type');
-const task = document.querySelector('#add-task');
+const tasks = document.querySelector('#task-list');
 const input = document.querySelector('#text');
 ;
+const deleteF = document.querySelector('#delete');
 const ul = document.querySelector('ul');
 const list = new ListTemplate(ul);
 let item;
@@ -18,6 +19,13 @@ form.addEventListener('submit', (e) => {
         item = new Task(input.value, { 3: 3 });
     }
     list.render(item, type.value, 'start');
+});
+tasks.addEventListener('click', (e) => {
+    /* if (e.target == deleteBtn) {
+        const li = e.target
+        tasks.removeChild(li)
+    } */
+    console.log(e.target);
 });
 /* let tasks: Task[]=[];
 tasks.push(task1, task2); */
