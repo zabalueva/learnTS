@@ -1,26 +1,26 @@
-"use strict";
-class User {
-    constructor(_name, _age) {
-        this.name = _name;
-        this.age = _age;
+import { Task } from './classes/Task.js';
+import { Party } from './classes/Party.js';
+import { ListTemplate } from './classes/ListTemplate.js';
+const form = document.querySelector('.new-item');
+const type = document.querySelector('#type');
+const task = document.querySelector('#add-task');
+const input = document.querySelector('#text');
+;
+const ul = document.querySelector('ul');
+const list = new ListTemplate(ul);
+let item;
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (type.value == 'event') {
+        item = new Party(input.value, { 3: 3 });
     }
-}
-let tom = new User("Том", 29);
-let rick = new User("Rick", 25);
-console.log("Имя: ", tom.name, " возраст: ", tom.age);
-class Title {
-    constructor(name) {
-        this.name = name;
+    else {
+        item = new Task(input.value, { 3: 3 });
     }
-}
-let titleCommon = new Title('What I should to do');
-const app = document.getElementById('app'); //getElementsByClassName - not properties appendChild
-let p = document.createElement('p');
-/* p.textContent=welcomeApp(titleCommon); */
-app === null || app === void 0 ? void 0 : app.appendChild(p);
-function welcomeApp(title) {
-    return title;
-}
+    list.render(item, type.value, 'start');
+});
+/* let tasks: Task[]=[];
+tasks.push(task1, task2); */
 /* document.body.textContent = welcomeApp(titleCommon);
  */
 /* const james = {

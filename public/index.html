@@ -19,26 +19,25 @@
 				</form>
 			</div>
 		</header>
+
 		<div id="task-list">
 			<h2 class="title">Tasks to do</h2>
 			<ul class="tasks">
-				<li>
-					<span class="name">Name of the Wind</span>
-					<span class="delete">delete</span>
-				</li>
-				<li>
-					<span class="name">The Wise Man's Fear</span>
-					<span class="delete">delete</span>
-				</li>
-				<li>
-					<span class="name">Kafka on the Shore</span>
-					<span class="delete">delete</span>
-				</li>
+				
 			</ul>
 		</div>
 
-		<form id="add-task">
-			<input type="text" placeholder="Add a task..." />
+		<form id="add-task" class="new-item">
+			<div class="field">
+				<label class="title">Type:</label>
+				<select id="type">
+					<option value="task">Task</option>
+					<option value="event">Event</option>
+				</select>
+			</div>
+
+			<input type="text" id="text" placeholder="Add a task..." />
+
 			<button>Add</button>
 		</form>
 

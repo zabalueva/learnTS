@@ -1,32 +1,33 @@
-class User {
-	name: string;
-	age: number;
-	constructor (_name: string, _age: number) {
-		this.name=_name;
-		this.age=_age;
+import { Task } from './classes/Task.js';
+import { Party } from './classes/Party.js';
+import { HasFormatter } from './interfaces/HasFormatter.js';
+import { ListTemplate } from './classes/ListTemplate.js';
+
+const form=document.querySelector('.new-item') as HTMLFormElement;
+const type=document.querySelector('#type') as HTMLSelectElement;
+const task=document.querySelector('#add-task') as HTMLFormElement;
+const input=document.querySelector('#text') as HTMLInputElement;;
+
+const ul=document.querySelector('ul')!;
+const list=new ListTemplate(ul);
+
+let item: HasFormatter;
+
+form.addEventListener('submit', (e: Event) => {
+	e.preventDefault();
+
+	if (type.value=='event') {
+		item=new Party(input.value, { 3: 3 });
+	} else {
+		item=new Task(input.value, { 3: 3 });
 	}
-}
 
-let tom: User = new User("Том", 29);
-let rick: User = new User ("Rick", 25)
-console.log("Имя: ", tom.name, " возраст: ", tom.age);
+	list.render(item, type.value, 'start');
 
-class Title {
-	name: string;
+})
 
-	constructor (name: string) {
-		this.name = name;
-	}
-}
-let titleCommon: Title = new Title('What I should to do') ;
-const app = document.getElementById('app'); //getElementsByClassName - not properties appendChild
-let p = document.createElement('p');
-/* p.textContent=welcomeApp(titleCommon); */
-app?.appendChild(p);
-
-function welcomeApp(title: Title) {
-	return title;
-}
+/* let tasks: Task[]=[];
+tasks.push(task1, task2); */
 
 
 /* document.body.textContent = welcomeApp(titleCommon);
