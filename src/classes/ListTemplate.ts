@@ -15,9 +15,9 @@ export class ListTemplate {
 		p.innerText=item.add();
 		li.append(p);
 
-		const deleteBtn=document.createElement('p');
-		p.innerText = 'delete';
-		li.append(p);
+		const deleteBtn=document.createElement('button') as HTMLButtonElement ;
+		deleteBtn.textContent = 'delete';
+		li.appendChild(deleteBtn);
 		deleteBtn.classList.add('delete');
 
 		if (pos=='start') {

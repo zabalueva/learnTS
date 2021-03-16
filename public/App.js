@@ -5,8 +5,6 @@ const form = document.querySelector('.new-item');
 const type = document.querySelector('#type');
 const tasks = document.querySelector('#task-list');
 const input = document.querySelector('#text');
-;
-const deleteF = document.querySelector('#delete');
 const ul = document.querySelector('ul');
 const list = new ListTemplate(ul);
 let item;
@@ -21,26 +19,19 @@ form.addEventListener('submit', (e) => {
     list.render(item, type.value, 'start');
 });
 tasks.addEventListener('click', (e) => {
-    /* if (e.target == deleteBtn) {
-        const li = e.target
-        tasks.removeChild(li)
-    } */
-    console.log(e.target);
+    const deleteF = document.querySelector('.delete');
+    if (e.target == deleteF) {
+        const li = deleteF.closest('li');
+        ul.removeChild(li);
+    }
 });
+/* if (deleteF) {
+    deleteF.addEventListener('click', (e: Event) => {
+        const li=deleteF.closest('li');
+
+
+        console.log(li)
+    })
+} */
 /* let tasks: Task[]=[];
 tasks.push(task1, task2); */
-/* document.body.textContent = welcomeApp(titleCommon);
- */
-/* const james = {
-    firstName: "James",
-    lastName: "Quick"
-};
-
-welcomePerson(james);
-
-interface Person {
-    firstName: string;
-    lastName: string;
-}
-
-document.body.textContent = welcomePerson(james); */

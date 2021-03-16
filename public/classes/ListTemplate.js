@@ -10,9 +10,9 @@ export class ListTemplate {
         const p = document.createElement('p');
         p.innerText = item.add();
         li.append(p);
-        const deleteBtn = document.createElement('p');
-        p.innerText = 'delete';
-        li.append(p);
+        const deleteBtn = document.createElement('button');
+        deleteBtn.textContent = 'delete';
+        li.appendChild(deleteBtn);
         deleteBtn.classList.add('delete');
         if (pos == 'start') {
             this.container.prepend(li);
